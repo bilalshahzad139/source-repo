@@ -1,0 +1,44 @@
+{
+  "name": "source-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilalshahzad139/source-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bilalshahzad139/source-repo/issues"
+  },
+  "homepage": "https://github.com/bilalshahzad139/source-repo#readme",
+  "devDependencies": {
+    "semantic-release": "17.3.8",
+    "semantic-release-monorepo": "7.0.4"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json"
+          ]
+        }
+      ]
+    ],
+    "extends": "semantic-release-monorepo"
+  }
+}
