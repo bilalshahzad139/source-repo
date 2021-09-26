@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.My_SP_KEY }}
-      - run: npm install
+      - run: npm ci
       - run: npx semantic-release
 
       # Runs a single command using the runners shell
