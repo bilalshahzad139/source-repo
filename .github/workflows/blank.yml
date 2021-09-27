@@ -49,7 +49,7 @@ jobs:
         with:
           owner: bilalshahzad139
           repo: target-repo
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           workflow_file_name: blank.yml
           ref: main
           wait_workflow: false
