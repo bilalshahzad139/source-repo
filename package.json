@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postpublish": "ispackagepublish='true' && echo $ispackagepublish",
+    "postpublish": "echo '::set-env name=IS_PUBLISH_VERSION::true' && echo $IS_PUBLISH_VERSION",
     "semantic-release": "semantic-release"
   },
   "publishConfig": {
