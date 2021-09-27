@@ -1,11 +1,12 @@
 {
   "name": "@bilalshahzad139/source-repo",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postpublish": "echo postpublish"
+    "postpublish": "echo postpublish",
+    "semantic-release": "semantic-release"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
@@ -13,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bilalshahzad139/source-repo.git"
+    "url": "https://github.com/bilalshahzad139/source-repo.git"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/bilalshahzad139/source-repo#readme",
   "devDependencies": {
-    "semantic-release": "17.3.8",
+    "semantic-release": "18.0.0",
     "semantic-release-monorepo": "7.0.4",
     "@semantic-release/git": "9.0.0"
   },
