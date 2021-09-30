@@ -31,17 +31,22 @@ jobs:
       # - run: npm ci
       # - run: npx semantic-release
 
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
-        id: semantic   # Need an `id` for output variables
-        with:
-          #dry_run: true
-          extra_plugins: |
-            @semantic-release/changelog@3.0.0
-            @semantic-release/git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Set versions
+        id: app-versions
+        run: |
+          APP_VER=`jq '.version' package.json`
+          echo '::set-output name=APP_VERSION::$APP_VER'
+        
+
+      # - name: Semantic Release
+      #   uses: cycjimmy/semantic-release-action@v2
+      #   id: semantic   # Need an `id` for output variables
+      #   with:
+      #     extra_plugins: |
+      #       @semantic-release/changelog@3.0.0
+      #       @semantic-release/git
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: push event to other repo
         if: steps.semantic.outputs.new_release_published == 'true'
@@ -55,10 +60,8 @@ jobs:
         #   wait_workflow: false
         #   inputs: '{"event_type":"event_type","client_payload":{"id":"1"}}'
         run: |
-          export APP_VERSION=`jq '.version' package.json`
-          echo $APP_VERSION
-          echo ${{env.APP_VERSION}}
-          curl -XPOST -u "bilalshahzad139:${{secrets.PAT_TOKEN}}" -H "Accept:application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/bilalshahzad139/target-repo/dispatches -d '{"event_type":"event_type","client_payload":{"app_version":"$APP_VERSION"}}'
+          echo ${{ steps.app-versions.outputs.APP_VERSION }}
+          curl -XPOST -u "bilalshahzad139:${{secrets.PAT_TOKEN}}" -H "Accept:application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/bilalshahzad139/target-repo/dispatches -d '{"event_type":"event_type","client_payload":{"app_version":"${{ steps.app-versions.outputs.APP_VERSION }}"}}'
 
       # Runs a single command using the runners shell
       # - name: Run a one-line script
