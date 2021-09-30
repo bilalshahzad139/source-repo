@@ -34,8 +34,9 @@ jobs:
       - name: Set versions
         id: app-versions
         run: |
-          APP_VER=`jq '.version' package.json`
-          echo '::set-output name=APP_VERSION::$APP_VER'
+          APP_VER=`jq ".version" package.json`
+          echo $APP_VER
+          echo '::set-output name=APP_VERSION::`jq ".version" package.json`'
         
 
       - name: Semantic Release
