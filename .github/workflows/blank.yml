@@ -46,6 +46,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Semantic Release - Second
+        working-directory: ./second
+        uses: cycjimmy/semantic-release-action@v2
+        id: second   # Need an `id` for output variables
+        with:
+          extra_plugins: |
+            @semantic-release/changelog@3.0.0
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set versions
         id: app-versions
         run: |

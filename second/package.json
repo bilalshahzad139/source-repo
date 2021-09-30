@@ -1,0 +1,50 @@
+{
+  "name": "@bilalshahzad139/second",
+  "version": "1.1.12",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postpublish": "export IS_PUBLISH_VERSION='true' && echo $IS_PUBLISH_VERSION",
+    "semantic-release": "semantic-release"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bilalshahzad139/second.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bilalshahzad139/second/issues"
+  },
+  "homepage": "https://github.com/bilalshahzad139/second#readme",
+  "devDependencies": {
+    "semantic-release": "18.0.0",
+    "semantic-release-monorepo": "7.0.4",
+    "@semantic-release/git": "9.0.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json"
+          ]
+        }
+      ]
+    ]
+  }
+}
