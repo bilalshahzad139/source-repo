@@ -34,7 +34,7 @@ jobs:
       - name: Set versions
         id: app-versions
         run: |
-          APP_VERSION=`jq ".version" package.json`
+          echo "APP_VERSION=$(echo `jq '.version' package.json`)" >> $GITHUB_ENV
           echo $APP_VERSION
           
         #echo '::set-output name=APP_VERSION::`jq ".version" package.json`'
