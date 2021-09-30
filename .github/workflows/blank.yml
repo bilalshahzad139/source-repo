@@ -31,10 +31,7 @@ jobs:
       # - run: npm ci
       # - run: npx semantic-release
 
-      - name: Set versions
-        id: app-versions
-        run: |
-          echo "APP_VERSION=$(echo `jq '.version' package.json`)" >> $GITHUB_ENV
+
           
         #echo '::set-output name=APP_VERSION::`jq ".version" package.json`'
         
@@ -49,6 +46,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set versions
+        id: app-versions
+        run: |
+          echo "APP_VERSION=$(echo `jq '.version' package.json`)" >> $GITHUB_ENV
+                    
       - name: push event to other repo
         if: steps.semantic.outputs.new_release_published == 'true'
         # uses: convictional/trigger-workflow-and-wait@v1.3.0
