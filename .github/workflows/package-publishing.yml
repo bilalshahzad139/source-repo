@@ -69,10 +69,8 @@ jobs:
       - name: Set versions
         id: app-versions
         run: |
-          cd first &&
-          echo "FIRST_APP_VERSION=$(echo `jq '.version' package.json`)" >> $GITHUB_ENV &&
-          cd second && 
-          echo "SECOND_APP_VERSION=$(echo `jq '.version' package.json`)" >> $GITHUB_ENV
+          echo "FIRST_APP_VERSION=$(echo `jq '.version' first/package.json`)" >> $GITHUB_ENV &&
+          echo "SECOND_APP_VERSION=$(echo `jq '.version' second/package.json`)" >> $GITHUB_ENV
                     
       - name: push event to other repo
         #if: steps.semantic.outputs.new_release_published == 'true'
