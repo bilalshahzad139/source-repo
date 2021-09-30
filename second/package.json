@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bilalshahzad139/second.git"
+    "url": "https://github.com/bilalshahzad139/source-repo.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bilalshahzad139/second/issues"
+    "url": "https://github.com/bilalshahzad139/source-repo/issues"
   },
-  "homepage": "https://github.com/bilalshahzad139/second#readme",
+  "homepage": "https://github.com/bilalshahzad139/source-repo#readme",
   "devDependencies": {
     "semantic-release": "18.0.0",
     "semantic-release-monorepo": "7.0.4",
