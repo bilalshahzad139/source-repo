@@ -1,11 +1,11 @@
 {
-  "name": "@bilalshahzad139/second",
+  "name": "@bilalshahzad139/first",
   "version": "1.1.12",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postpublish": "export IS_SECOND_PKG_PUBLISHED='true' && echo $IS_PUBLISH_VERSION",
+    "postpublish": "export IS_FIRST_PKG_PUBLISHED='true' && echo $IS_PUBLISH_VERSION",
     "semantic-release": "semantic-release"
   },
   "publishConfig": {
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bilalshahzad139/second.git"
+    "url": "https://github.com/bilalshahzad139/first.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bilalshahzad139/second/issues"
+    "url": "https://github.com/bilalshahzad139/first/issues"
   },
-  "homepage": "https://github.com/bilalshahzad139/second#readme",
+  "homepage": "https://github.com/bilalshahzad139/first#readme",
   "devDependencies": {
     "semantic-release": "18.0.0",
     "semantic-release-monorepo": "7.0.4",
