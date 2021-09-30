@@ -63,8 +63,11 @@ jobs:
         run: |
           echo $APP_VERSION
           echo ${{env.APP_VERSION}} 
+          APP2_VERSION=`jq '.version' package.json`
           DATA_TO_PASS='{"event_type":"event_type","client_payload":{"app_version":"'"${{env.APP_VERSION}}"'"}}'
+          DATA_TO_PASS2='{"event_type":"event_type","client_payload":{"app_version":"'"$APP2_VERSION"'"}}'
           echo $DATA_TO_PASS         
+          echo DATA_TO_PASS2
           curl -XPOST -u "bilalshahzad139:${{secrets.PAT_TOKEN}}" -H "Accept:application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/bilalshahzad139/target-repo/dispatches -d $DATA_TO_PASS
 
 #echo ${{ steps.app-versions.outputs.APP_VERSION }}a
