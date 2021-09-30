@@ -30,6 +30,9 @@ jobs:
           token: ${{ secrets.My_SP_KEY }}
       - run: npm ci
       - run: npx semantic-release && echo $PKG_PUBLISHED
+      - run: |
+          echo $PKG_PUBLISHED
+          echo ${{env.PKG_PUBLISHED}}
 
 
           
